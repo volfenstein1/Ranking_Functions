@@ -72,7 +72,7 @@ To avoid division by zero, it is common to adjust the numerator / denominator as
 Given a query $Q$ consisting of terms $q_1,...,q_n$ and a document $d$ belonging to a corpus $D$, the **tf-idf** score is calculated as:
 
 $$
-  \text{tf-idf}(Q, d) = \sum_{q_i \in Q} \text{tf-idf}(q_i, d) = \sum_{q_i \in Q} \text{tf}(q_i,d) \dot \text{idf}(q_i)
+  \text{tf-idf} (Q, d) = \sum_{q_i \in Q} \text{tf-idf} (q_i, d) = \sum_{q_i \in Q} \text{tf} (q_i,d) \dot \text{idf} (q_i)
 $$
 
 We can summarize its behavior as follows:
@@ -106,7 +106,7 @@ We can summarize its behavior as follows:
 - As a term $t$ increases in frequency in the document $d$ we have: $\tfrac{f_{q_i,d} \dot (k + 1) }{ f_{q_i,d} + k (1 - b + b \tfrac{|d|}{\text{avgdl}}) } \to k+1$
 - From the above, we see how the term $k$ controls the asymptotic behavior as a term increases in frequency in a document.
 - Likewise as the term $t$ decreases in frequency in the document $d$ we have: $\tfrac{f_{q_i,d} \dot (k + 1) }{ f_{q_i,d} + k (1 - b + b \tfrac{|d|}{\text{avgdl}}) } \to 0$
-- As the length of $d$ increases we have: $\tfrac{f*{q_i,d} \dot (k + 1) }{ f*{q*i,d} + k (1 - b + b \tfrac{|d|}{\text{avgdl}}) } \to $\tfrac{f*{q*i,d} \dot (k + 1) }{ f*{q_i,d} + k \dot \text{large correction} } $
+- As the length of $d$ increases we have: $\tfrac{f_{q_i,d} \dot (k + 1) }{ f_{q_i,d} + k (1 - b + b \tfrac{|d|}{\text{avgdl}}) } \to \tfrac{f_{q_i,d} \dot (k + 1) }{ f_{q_i,d} + k \dot \text{large correction} } $
 - As the length of $d$ decreases we have: $\tfrac{f_{q_i,d} \dot (k + 1) }{ f_{q_i,d} + k (1 - b + b \tfrac{|d|}{\text{avgdl}}) } \to \tfrac{f_{q_i,d} \dot (k + 1) }{ f_{q_i,d} + k (1 - b ) }$
 - As a term $q_i$ increases in frequency in the corpus $D$, we have: $\tfrac{n_{q_i} + 0.5}{N - n_{q_i} + 0.5} \to \infty$ and hence $\text{idf}(q_i) \to 0^+$.
 - As a term $q_i$ decreases in frequency in the corpus $D$, we have: $\tfrac{n_{q_i} + 0.5}{N - n_{q_i} + 0.5} \to 0$ and hence $\text{idf}(t) \to \infty$.
